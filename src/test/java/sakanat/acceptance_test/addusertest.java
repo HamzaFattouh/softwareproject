@@ -19,28 +19,20 @@ public class addusertest {
 	public void aUserWithTheFollowingDetails(io.cucumber.datatable.DataTable dataTable) {
 	    
 		
-	    List<Map<String, String>> userDetails = dataTable.asMaps(String.class, String.class);
-
-	    for (Map<String, String> user : userDetails) {
-	        user1.setUserName(user.get("username"));
-	        password = user.get("password");
-	        user1.setUserType(user.get("user_type"));
-	        user1.setAddress(user.get("adrress"));
-	        user1.setPhoneNumber(user.get("phone_number"));
-	        user1.setGender(user.get("gender"));
-	        user1.setBirthDate(user.get("birth_date"));
-	        user1.setEmail(user.get("email"));
-	        System.out.println("11111111111");
+	    
+	        user1.setUserName("hamza1");
+	        password = "12345";
+	        user1.setUserType("owner");
+	        user1.setAddress("nablus");
+	        user1.setPhoneNumber("0599999999");
+	        user1.setGender("m");
+	        user1.setBirthDate("2000-09-09");
+	        user1.setEmail("hamza1@gmail.com");
 	        
-	    }
-		// Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-	    //
-	    // For other transformations you can register a DataTableType.
-	    throw new io.cucumber.java.PendingException();
+	        
+	    
+		
+	    
 	}
 
 	@When("the user is added")
@@ -50,6 +42,7 @@ public class addusertest {
 
 	@Then("the user added successfully")
 	public void theUserAddedSuccessfully() {
+		//assertTrue(true);
 	    user1.login(user1.getUserName(), password);
 	    assertTrue(user1.getuserlogedin()==true);
 	}
@@ -57,17 +50,19 @@ public class addusertest {
 	@Given("a user with username {string} already exists in the database")
 	public void aUserWithUsernameAlreadyExistsInTheDatabase(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	    user1.setUserName("tanentusername");
+	    
 	}
 
 	@Then("the user not added")
 	public void theUserNotAdded() {
+		//assertTrue(true);
 	    // Write code here that turns the phrase above into concrete actions
 	    try {
 	    	user1.adduser(user1, password);
 	    }catch(Exception e) {
 	    	assertTrue(true);
 	    }
+	    user.deleteuser(user1.getUserName());
 		
 	}
 	

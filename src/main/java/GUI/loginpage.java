@@ -189,7 +189,7 @@ this.setVisible(false);
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 this.setVisible(false);
-       signup m= new signup();
+       signuppage m= new signuppage();
        m.setVisible(true);            // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

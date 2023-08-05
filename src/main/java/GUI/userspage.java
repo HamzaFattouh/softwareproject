@@ -7,6 +7,7 @@ package GUI;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 import sakanat.user;
 
@@ -88,6 +89,11 @@ public class userspage extends javax.swing.JFrame {
         jButton3.setText("Delete");
         jPanel1.add(jButton3);
         jButton3.setBounds(460, 260, 150, 60);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setText("Back");
@@ -126,6 +132,9 @@ public class userspage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //add user button
         // TODO add your handling code here:
+    	adduserpage a = new adduserpage();
+    	this.setVisible(false);
+    	a.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -134,6 +143,16 @@ public class userspage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        //delete button
+    	// TODO add your handling code here:
+    	user.deleteuser(this.jList1.getSelectedValue());
+    	JOptionPane.showMessageDialog(null, "user deleted");
+    	userspage u = new userspage();
+    	this.setVisible(false);
+    	u.setVisible(true);
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //back button
         // TODO add your handling code here:

@@ -12,12 +12,12 @@ import sakanat.user;
  *
  * @author h-fat
  */
-public class adduserpage extends javax.swing.JFrame {
+public class signuppage extends javax.swing.JFrame {
 
     /**
-     * Creates new form adduserpage
+     * Creates new form signuppage
      */
-    public adduserpage() {
+    public signuppage() {
         initComponents();
     }
 
@@ -138,23 +138,25 @@ public class adduserpage extends javax.swing.JFrame {
         jPanel1.add(mounthcombobox);
         mounthcombobox.setBounds(310, 310, 80, 32);
         for(Integer i=1;i<=12;i++){
-        	mounthcombobox.addItem(i.toString());
+            mounthcombobox.addItem(i.toString());
         }
 
         yearcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year" }));
         jPanel1.add(yearcombobox);
         yearcombobox.setBounds(400, 310, 94, 31);
+        yearcombobox.setVisible(false);
         for(Integer i=2010 ; i>= 1950 ; i--){
             yearcombobox.addItem(i.toString());
         }
 
-        typecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tanent", "Owner", "Administrator" }));
+        typecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tanent", "Owner" }));
         jPanel1.add(typecombobox);
         typecombobox.setBounds(210, 390, 150, 32);
 
         daycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day" }));
         jPanel1.add(daycombobox);
         daycombobox.setBounds(210, 310, 80, 32);
+        daycombobox.setVisible(false);
         for(Integer i=1 ; i<=31 ; i++){
             daycombobox.addItem(i.toString());
         }
@@ -200,35 +202,31 @@ public class adduserpage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Back button
         // TODO add your handling code here:
-    	
-    	userspage u = new userspage();
+    	main m = new main();
     	this.setVisible(false);
-    	u.setVisible(true);
-    	
+    	m.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Add button
         // TODO add your handling code here:
-    	
     	try {
-    	user u = new user(this.nametext.getText(),
-    			          this.typecombobox.getSelectedItem().toString(),
-    			          this.addresstext.getText(),
-    			          this.phonetext.getText(),
-    			          this.gendercombobox.getSelectedItem().toString(),
-    			          this.emailtext.getText(),
-    			          this.yearcombobox.getSelectedItem()+"-"+this.mounthcombobox.getSelectedItem()+"-"+this.daycombobox.getSelectedItem()
-    			          );
-    	user.adduser(u, this.passwordtext.getText());
-    	}catch(Exception e) {
-    		JOptionPane.showMessageDialog(addresstext, e);
-    	}
-    	JOptionPane.showMessageDialog(null, "User Added");
-    	adduserpage a = new adduserpage();
-    	this.setVisible(false);
-    	a.setVisible(true);
-    	
+        	user u = new user(this.nametext.getText(),
+        			          this.typecombobox.getSelectedItem().toString(),
+        			          this.addresstext.getText(),
+        			          this.phonetext.getText(),
+        			          this.gendercombobox.getSelectedItem().toString(),
+        			          this.emailtext.getText(),
+        			          this.yearcombobox.getSelectedItem()+"-"+this.mounthcombobox.getSelectedItem()+"-"+this.daycombobox.getSelectedItem()
+        			          );
+        	user.adduser(u, this.passwordtext.getText());
+        	}catch(Exception e) {
+        		JOptionPane.showMessageDialog(addresstext, e);
+        	}
+        	JOptionPane.showMessageDialog(null, "User Added");
+        	adduserpage a = new adduserpage();
+        	this.setVisible(false);
+        	a.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -248,20 +246,20 @@ public class adduserpage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adduserpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signuppage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adduserpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signuppage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adduserpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signuppage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adduserpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signuppage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adduserpage().setVisible(true);
+                new signuppage().setVisible(true);
             }
         });
     }

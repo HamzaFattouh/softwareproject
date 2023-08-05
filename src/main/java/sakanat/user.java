@@ -18,6 +18,16 @@ public class user {
 	
 	
 	//constructor
+	public user(String userName, String userType, String address, String phoneNumber, String email, String gender, String birthDate) {
+        this.user_name = userName;
+        this.usertype = userType;
+        this.address = address;
+        this.phone_number = phoneNumber;
+        this.email = email;
+        this.Gender = gender;
+        this.birth_date = birthDate;
+    }
+	
 	public user(String...variable) {
 		
 		for(int i=0 ; i<variable.length ; i++) {
@@ -175,6 +185,18 @@ public class user {
         }
 
         return users;
+	}
+	
+	public static void deleteuser(String name) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakanat", "root", "");
+            Statement stmt = c.createStatement();
+            String sql = "DELETE FROM `user` WHERE `user`.`username` = '"+name+"'";
+            stmt.executeUpdate(sql);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public static void main(String []args) {

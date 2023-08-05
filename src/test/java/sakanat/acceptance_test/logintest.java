@@ -34,9 +34,10 @@ public class logintest {
 	@Then("tanent is login succeeds")
 	public void tanentIsLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-		assertTrue(u.getusertype()=="tanent");
+		
+		assertTrue(u.getusertype().equals("tanent"));
 	}
-
+////////////////////////////////////////////////////////////////////////////
 	@When("owner user name is {string}")
 	public void ownerUserNameIs(String string) {
 	    // Write code here that turns the phrase above into concrete actions
@@ -52,7 +53,8 @@ public class logintest {
 	@Then("owner login succeeds")
 	public void ownerLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-	    assertTrue(u.getusertype()=="owner");
+		
+	    assertTrue(u.getusertype().equals("owner"));
 	}
 ////////////////////////////////////////////////////////////////////////////////
 	@When("admin user name is {string}")
@@ -70,7 +72,7 @@ public class logintest {
 	@Then("Administrator login succeeds")
 	public void administratorLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-		assertTrue(u.getusertype()=="admin");
+		assertTrue(u.getusertype().equals("admin"));
 	}
 
 	@When("wrong user name is {string}")
